@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class KPSP extends Model
 {
     use HasFactory;
+
+    protected $table = 'kpsp';
+
+    protected $guarded = ['id'];
 }

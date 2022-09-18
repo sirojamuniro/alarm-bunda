@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class BodyLength extends Model
 {
     use HasFactory;
+
+    protected $table = 'body_lengths';
+
+    protected $guarded = ['id'];
 }

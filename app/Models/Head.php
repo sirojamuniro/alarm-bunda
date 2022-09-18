@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Head extends Model
 {
     use HasFactory;
+
+    protected $table = 'heads';
+
+    protected $guarded = ['id'];
 }

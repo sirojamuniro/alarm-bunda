@@ -9,5 +9,7 @@ class AnswerKPSP extends Model
 {
     use HasFactory;
 
+    protected $table = 'answer_kpsp';
+
     protected $guarded = ['id'];
 }

@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class CountKPSP extends Model
 {
     use HasFactory;
+
+    protected $table = 'count_kpsp';
+
+    protected $guarded = ['id'];
 }
