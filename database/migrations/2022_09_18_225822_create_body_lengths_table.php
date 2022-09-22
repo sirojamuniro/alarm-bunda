@@ -15,9 +15,9 @@ class CreateBodyLengthsTable extends Migration
     {
         Schema::create('body_lengths', function (Blueprint $table) {
             $table->id();
-            $table->float('name', 8, 2);
+            $table->float('name', 8, 2)->nullable();
             $table->enum('gender', ['male', 'female'])->default('male')->index();
-            $table->string('status');
+            $table->string('status')->nullable();
             $table->timestamps();
 
             $table->foreignId('month_id')->nullable()

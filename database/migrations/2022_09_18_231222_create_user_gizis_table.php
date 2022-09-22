@@ -15,11 +15,13 @@ class CreateUserGizisTable extends Migration
     {
         Schema::create('user_gizis', function (Blueprint $table) {
             $table->id();
-            $table->float('weight', 8, 2);
-            $table->float('body_length', 8, 2);
-            $table->float('head_circle', 8, 2);
-            $table->string('status_bb_weight');
-            $table->string('status_head');
+            $table->float('weight', 8, 2)->nullable();
+            $table->float('body_length', 8, 2)->nullable();
+            $table->float('head_circle', 8, 2)->nullable();
+            $table->string('status_bb_weight')->nullable();
+            $table->string('status_bb')->nullable();
+            $table->string('status_weight')->nullable();
+            $table->string('status_head')->nullable();
             $table->timestamps();
 
             $table->foreignId('child_id')->nullable()

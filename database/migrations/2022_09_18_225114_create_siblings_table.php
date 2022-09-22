@@ -15,8 +15,8 @@ class CreateSiblingsTable extends Migration
     {
         Schema::create('siblings', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->integer('age');
+            $table->string('name')->nullable();
+            $table->integer('age')->nullable();
             $table->timestamps();
 
             $table->foreignId('child_id')->nullable()

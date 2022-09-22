@@ -12,4 +12,10 @@ class Sibling extends Model
     protected $table = 'siblings';
 
     protected $guarded = ['id'];
+
+    public function child()
+    {
+    	return $this->belongsTo(Child::class, 'user_id', 'id');
+    }
+
 }

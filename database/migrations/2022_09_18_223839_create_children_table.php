@@ -15,19 +15,21 @@ class CreateChildrenTable extends Migration
     {
         Schema::create('children', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->nullable();
             $table->enum('gender', ['male', 'female'])->default('male')->index();
-            $table->date('dob');
-            $table->integer('age');
-            $table->string('operation'); //sc/normal
-            $table->float('birth_weight', 8, 2);
-            $table->string('helper');
-            $table->string('place_of_birth');
-            $table->string('father_name');
-            $table->integer('father_age');
-            $table->string('mother_name');
-            $table->integer('mother_age');
-            $table->mediumText('address');
-            $table->string('number_child');
+            $table->date('dob')->nullable();
+            $table->integer('age')->nullable();
+            $table->string('operation')->nullable(); //sc/normal
+            $table->float('birth_weight', 8, 2)->nullable();
+            $table->string('helper')->nullable();
+            $table->mediumText('address_place')->nullable();
+            $table->string('place_of_birth')->nullable();
+            $table->string('father_name')->nullable();
+            $table->integer('father_age')->nullable();
+            $table->string('mother_name')->nullable();
+            $table->integer('mother_age')->nullable();
+            $table->mediumText('address')->nullable();
+            $table->string('number_child')->nullable();
 
             $table->timestamps();
 

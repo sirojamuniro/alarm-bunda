@@ -12,4 +12,14 @@ class Child extends Model
     protected $table = 'children';
 
     protected $guarded = ['id'];
+
+    public function sibling()
+    {
+    	return $this->hasMany(Sibling::class, 'child_id', 'id');
+    }
+
+    public function userChild()
+    {
+    	return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }

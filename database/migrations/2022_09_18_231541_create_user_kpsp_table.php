@@ -15,8 +15,8 @@ class CreateUserKPSPTable extends Migration
     {
         Schema::create('user_kpsp', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('status');
+            $table->string('name')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
 
             $table->foreignId('child_id')->nullable()

@@ -15,8 +15,8 @@ class CreateWeightsTable extends Migration
     {
         Schema::create('weights', function (Blueprint $table) {
             $table->id();
-            $table->float('name', 8, 2);
-            $table->string('status');
+            $table->float('name', 8, 2)->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
 
             $table->foreignId('month_id')->nullable()

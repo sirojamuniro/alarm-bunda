@@ -15,8 +15,8 @@ class CreateCountKpspTable extends Migration
     {
         Schema::create('count_kpsp', function (Blueprint $table) {
             $table->id();
-            $table->integer('count_yes');
-            $table->integer('count_not');
+            $table->integer('count_yes')->nullable();
+            $table->integer('count_not')->nullable();
             $table->timestamps();
 
             $table->foreignId('child_id')->nullable()
