@@ -28,6 +28,33 @@
                 </p>
               </a>
           </li>
+          <li class="nav-item has-treeview  {{ request()->is('gizi','gizi/*')}}">
+            <a href="#" class="nav-link {{request()->is('gizi','gizi/*') }}">
+              <i class="nav-icon fas fa-tachometer-alt" ></i>
+              <p>
+                Halaman Gizi
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('gizi.index')}}"  class="nav-link {{ request()->is('gizi.index','gizi.index') ? 'active':'' }}" >
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Tinggi Badan </p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{route('gizi.list-bb')}}"  class="nav-link {{ request()->is('gizi.listbb','gizi.listbb') ? 'active':'' }}" >
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Berat Badan </p>
+                </a>
+              </li>
+
+
+
+            </ul>
+        </li>
           </ul>
       </nav>
       <!-- /.sidebar-menu -->

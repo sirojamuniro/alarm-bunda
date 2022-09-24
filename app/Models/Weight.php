@@ -12,4 +12,9 @@ class Weight extends Model
     protected $table = 'weights';
 
     protected $guarded = ['id'];
+
+    public function month()
+    {
+    	return $this->belongsTo(Month::class, 'month_id', 'id');
+    }
 }

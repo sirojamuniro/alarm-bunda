@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ManagementChildrenController;
+use App\Http\Controllers\Admin\ManagementGiziController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,7 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('child', ManagementChildrenController::class);
+Route::resource('gizi', ManagementGiziController::class);
+Route::get('gizi/showtb', [ManagementGiziController::class,'showTb'])->name('gizi.showtb');
+Route::get('gizi/bb/list', [ManagementGiziController::class,'listBB'])->name('gizi.list-bb');
+Route::get('gizi/bb/detail', [ManagementGiziController::class,'showBb'])->name('gizi.detail-bb');

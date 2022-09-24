@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Image;
 use App\Models\BodyLength;
 use App\Models\userGizi;
+use App\Models\Month;
+use App\Models\Weight;
 use Illuminate\Http\Request;
 
 class ManagementGiziController extends Controller
@@ -17,9 +19,17 @@ class ManagementGiziController extends Controller
      */
     public function index()
     {
-        $result = Image::latest()->get();
+        $month = Month::all();
+        $result = BodyLength::with('month')->get();
 
-        return $result;
+        return view('admin.gizi.listtb',compact('result','month'));
+    }
+    public function listBB()
+    {
+        $month = Month::all();
+        $result = Weight::with('month')->get();
+
+        return view('admin.gizi.listbb',compact('result','month'));
     }
 
     /**
@@ -40,7 +50,39 @@ class ManagementGiziController extends Controller
      */
     public function store(Request $request)
     {
-        
+        if($request->type == 'tb'){
+            $reqBodyLength = $request->name;
+            $reqGender = $request->gender;
+            $reqMonth = $request->month_id;
+            $getBodies = BodyLength::where(['gender'=>$reqGender,'month_id'=>$reqMonth])->get();
+            $closest = null;
+            $status = null;
+            foreach($getBodies as $getBody){
+
+                if ($closest === null || abs($reqBodyLength - $closest) > abs($getBody->name - $reqBodyLength)) {
+                    $closest = $getBody->name;
+                    $status = $getBody->status;
+
+                }
+            }
+            return redirect()->route('gizi.showtb')->with(['status' => "${status}"]);
+        }
+        if($request->type == 'bb'){
+            $reqBodyLength = $request->name;
+            $reqMonth = $request->month_id;
+            $getBodies = Weight::where(['month_id'=>$reqMonth])->get();
+            $closest = null;
+            $status = null;
+            foreach($getBodies as $getBody){
+
+                if ($closest === null || abs($reqBodyLength - $closest) > abs($getBody->name - $reqBodyLength)) {
+                    $closest = $getBody->name;
+                    $status = $getBody->status;
+
+                }
+            }
+            return redirect()->route('gizi.detail-bb')->with(['status' => "${status}"]);
+        }
     }
 
     /**
@@ -49,9 +91,19 @@ class ManagementGiziController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        return view('admin.gizi.showtb');
+    }
+
+    public function showTb()
+    {
+        return view('admin.gizi.showtb');
+    }
+
+    public function showBb()
+    {
+        return view('admin.gizi.showbb');
     }
 
     /**

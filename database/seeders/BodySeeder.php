@@ -32,14 +32,14 @@ class BodySeeder extends Seeder
         $valueNBoys = [46.10,50.80,54.40,57.30,59.70,61.70, 63.30,64.80,66.20,67.50,
         68.70,69.90,71.00,72.10, 73.10, 74.10, 75.00, 76.00, 76.90,
          77.70, 78.60, 79.40, 80.20, 81.00,81.70];
-        
+
         $valueTBoys = [53.7,58.6,62.4,65.5,68.0,70.1,71.9,73.5,75.0,76.5,77.9,79.2,
-        80.5,81.8,83.0,84.2,85.4,86.5,87.7,88.8,89.8,90.9,91.9,92.9];
+        80.5,81.8,83.0,84.2,85.4,86.5,87.7,88.8,89.8,90.9,91.9,92.9,93.9];
 
         $valueSPGirls = [ 43.60,47.80,51.00,53.50,55.60,57.40,58.90,60.30,61.70,
         62.90,64.10,65.20,66.30,67.30,68.30,69.30,70.20,71.10,
-        72.00,72.80,73.70,74.50,75.20,76.00];
-        
+        72.00,72.80,73.70,74.50,75.20,76.00,76.70];
+
         $valuePGirls = [  43.60,47.80,51.00,53.50,55.60,57.40,58.90,60.30,61.70,62.90,
         64.10,65.20,66.30,67.30,68.30,72.00,70.20,71.10,72.10,72.80,
         73.70,74.50,75.20,76.00,76.70];
@@ -51,21 +51,32 @@ class BodySeeder extends Seeder
         $valueTGirls = [      53.90,57.60,61.10, 64.00,66.40,68.50,70.30,71.90,73.50,
         75.00,76.40,77.80,79.20,80.50,81.70,83.00,84.20,85.40,
         86.50,87.60,88.70,89.80,90.80,91.80,92.90,];
-
+        $valueSpB = 1;
+        $valuePB = 1;
+        $valueNB = 1;
+        $valueTB = 1;
+        $valueSpG = 1;
+        $valuePG = 1;
+        $valueNG = 1;
+        $valueTG = 1;
         foreach ($valueSPBoys as $valueSPBoy) {
-            
-            BodyLength::firstOrcreate([
+
+
+          BodyLength::firstOrcreate([
                 'name'=>$valueSPBoy,
                 'gender'=>$genderBoy,
-                'status'=>$statusSP
+                'status'=>$statusSP,
+                'month_id'=>$valueSpB++
             ]);
+
         }
 
         foreach ($valuePBoys as $valuePBoy) {
             BodyLength::firstOrcreate([
                 'name'=>$valuePBoy,
                 'gender'=>$genderBoy,
-                'status'=>$statusP
+                'status'=>$statusP,
+                'month_id'=>$valuePB++
             ]);
         }
 
@@ -73,7 +84,8 @@ class BodySeeder extends Seeder
             BodyLength::firstOrcreate([
                 'name'=>$valueNBoy,
                 'gender'=>$genderBoy,
-                'status'=>$statusN
+                'status'=>$statusN,
+                'month_id'=>$valueNB++
             ]);
         }
 
@@ -81,7 +93,8 @@ class BodySeeder extends Seeder
             BodyLength::firstOrcreate([
                 'name'=>$valueTBoy,
                 'gender'=>$genderBoy,
-                'status'=>$statusT
+                'status'=>$statusT,
+                'month_id'=>$valueTB++
             ]);
         }
 
@@ -89,7 +102,8 @@ class BodySeeder extends Seeder
             BodyLength::firstOrcreate([
                 'name'=>$valueSPGirl,
                 'gender'=>$genderFemale,
-                'status'=>$statusSP
+                'status'=>$statusSP,
+                'month_id'=>$valueSpG++
             ]);
         }
 
@@ -97,7 +111,8 @@ class BodySeeder extends Seeder
             BodyLength::firstOrcreate([
                 'name'=>$valuePGirl,
                 'gender'=>$genderFemale,
-                'status'=>$statusP
+                'status'=>$statusP,
+                'month_id'=>$valuePG++
             ]);
         }
 
@@ -105,7 +120,8 @@ class BodySeeder extends Seeder
             BodyLength::firstOrcreate([
                 'name'=>$valueNGirl,
                 'gender'=>$genderFemale,
-                'status'=>$statusN
+                'status'=>$statusN,
+                'month_id'=>$valueNG++
             ]);
         }
 
@@ -113,9 +129,10 @@ class BodySeeder extends Seeder
             BodyLength::firstOrcreate([
                 'name'=>$valueTGirl,
                 'gender'=>$genderFemale,
-                'status'=>$statusT
+                'status'=>$statusT,
+                'month_id'=>$valueTG++
             ]);
         }
-       
+
     }
 }

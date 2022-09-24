@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             MonthSeeder::class,
             BodySeeder::class,
+            WeightSeeder::class
         ]);
     }
 }

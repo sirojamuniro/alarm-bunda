@@ -12,4 +12,10 @@ class BodyLength extends Model
     protected $table = 'body_lengths';
 
     protected $guarded = ['id'];
+
+    public function month()
+    {
+    	return $this->belongsTo(Month::class, 'month_id', 'id');
+    }
+
 }
