@@ -15,7 +15,8 @@ class CreateKPSPTable extends Migration
     {
         Schema::create('kpsp', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
+            $table->mediumText('name')->nullable();
+            $table->mediumText('description')->nullable();
             $table->timestamps();
 
 

@@ -16,7 +16,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             MonthSeeder::class,
             BodySeeder::class,
-            WeightSeeder::class
+            WeightSeeder::class,
+            KPSPSeeder::class,
+            HeadSeeder::class
         ]);
     }
 }

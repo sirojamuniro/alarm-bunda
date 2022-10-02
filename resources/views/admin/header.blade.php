@@ -12,7 +12,11 @@
   <!-- Right navbar links -->
   <ul class="navbar-nav ml-auto">
     <div class="hometext">
-      <a href="" style="color: red !important;">Logout </a>
+      <a href="{{route('logout')}}"   style="color: red !important;" onclick="event.preventDefault();
+      document.getElementById('logout-form').submit();">Logout </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
       <span class="caret"></span>
   </ul>
 </nav>

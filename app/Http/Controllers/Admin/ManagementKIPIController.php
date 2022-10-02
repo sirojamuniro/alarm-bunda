@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Image;
 
 class ManagementKIPIController extends Controller
 {
@@ -14,7 +15,10 @@ class ManagementKIPIController extends Controller
      */
     public function index()
     {
-        //
+
+        $result = Image::latest()->get();
+        // dd($result);
+        return view('admin.kipi.index',compact('result'));
     }
 
     /**

@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-
+use App\Models\Head;
 class HeadSeeder extends Seeder
 {
     /**
@@ -13,6 +13,140 @@ class HeadSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $datas = [
+            [
+            'name'=>32.7,
+            'month_id'=>1
+            ],
+            [
+                'name'=>35.8,
+                'month_id'=>1
+            ],
+            [
+                'name'=>33,
+                'month_id'=>2
+            ],
+            [
+                'name'=>39,
+                'month_id'=>2
+            ],
+            [
+                'name'=>35,
+                'month_id'=>3
+            ],
+            [
+                'name'=>41,
+                'month_id'=>3
+            ],
+            [
+                'name'=>37,
+                'month_id'=>4
+            ],
+            [
+                'name'=>43,
+                'month_id'=>4
+            ],
+            [
+                'name'=>38,
+                'month_id'=>5
+            ],
+            [
+                'name'=>44,
+                'month_id'=>5
+            ],
+            [
+                'name'=>39,
+                'month_id'=>6
+            ],
+            [
+                'name'=>45,
+                'month_id'=>6
+            ],
+            [
+                'name'=>40,
+                'month_id'=>7
+            ],
+            [
+                'name'=>46,
+                'month_id'=>7
+            ],
+            [
+                'name'=>40.5,
+                'month_id'=>8
+            ],
+            [
+                'name'=>46.5,
+                'month_id'=>8
+            ],
+            [
+                'name'=>41.5,
+                'month_id'=>9
+            ],
+            [
+                'name'=>47.5,
+                'month_id'=>9
+            ],
+            [
+                'name'=>42,
+                'month_id'=>10
+            ],
+            [
+                'name'=>48,
+                'month_id'=>10
+            ],
+            [
+                'name'=>42.5,
+                'month_id'=>11
+            ],
+            [
+                'name'=>48.5,
+                'month_id'=>11
+            ],
+            [
+                'name'=>43,
+                'month_id'=>12
+            ],
+            [
+                'name'=>49,
+                'month_id'=>12
+            ],
+            [
+                'name'=>43.5,
+                'month_id'=>13
+            ],
+            [
+                'name'=>49.5,
+                'month_id'=>13
+            ],
+            [
+                'name'=>44,
+                'month_id'=>16
+            ],
+            [
+                'name'=>50,
+                'month_id'=>16
+            ],
+            [
+                'name'=>44.5,
+                'month_id'=>19
+            ],
+            [
+                'name'=>50.5,
+                'month_id'=>19
+            ],
+            [
+                'name'=>45,
+                'month_id'=>25
+            ],
+            [
+                'name'=>51,
+                'month_id'=>25
+            ],
+        ];
+
+        foreach ($datas as $data) {
+            Head::firstOrCreate($data);
+        }
+
     }
 }

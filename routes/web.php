@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\ManagementChildrenController;
 use App\Http\Controllers\Admin\ManagementGiziController;
+use App\Http\Controllers\Admin\ManagementKIPIController;
+use App\Http\Controllers\Admin\ManagementKPSPController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,9 +21,15 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::resource('child', ManagementChildrenController::class);
 Route::resource('gizi', ManagementGiziController::class);
+Route::resource('kipi', ManagementKIPIController::class);
+Route::resource('kpsp', ManagementKPSPController::class);
 Route::get('gizi/showtb', [ManagementGiziController::class,'showTb'])->name('gizi.showtb');
 Route::get('gizi/bb/list', [ManagementGiziController::class,'listBB'])->name('gizi.list-bb');
+Route::post('kpsp/question', [ManagementKPSPController::class,'question'])->name('kpsp.question');
+Route::get('kpsp/show-detail', [ManagementKPSPController::class,'showKPSP'])->name('kpsp.show.detail');
 Route::get('gizi/bb/detail', [ManagementGiziController::class,'showBb'])->name('gizi.detail-bb');
+Route::get('gizi/hd/detail', [ManagementGiziController::class,'showHeadSize'])->name('gizi.detail.head');
+Route::get('gizi/hd/list', [ManagementGiziController::class,'listHeadSize'])->name('gizi.list.head');

@@ -18,6 +18,11 @@ class CreateHeadsTable extends Migration
             $table->string('name')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();
+
+            $table->foreignId('month_id')->nullable()
+            ->constrained('months')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
         });
     }
 

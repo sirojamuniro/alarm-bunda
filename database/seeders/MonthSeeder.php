@@ -14,8 +14,8 @@ class MonthSeeder extends Seeder
      */
     public function run()
     {
-        
-        for( $i=0; $i<=24; $i++ )
+
+        for( $i=0; $i<=72; $i++ )
         {
             Month::firstOrCreate([
                 'name'=>"Bulan {$i}"
