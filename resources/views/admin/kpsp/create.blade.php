@@ -21,8 +21,8 @@
                     <tr>
                         <th>Pemeriksaan</th>
                         <th>Type</th>
-                        <th>Ya</th>
-                        <th>Tidak</th>
+                        <th>Action</th>
+
                     </tr>
                 </thead>
 
@@ -44,9 +44,6 @@
 
                         </td>
 
-                        <td>
-                            <input  type="checkbox" id="value_no[]" name="value_no[]" value="{{$valueNo}}"> 
-                        </td>
 
                     </tr>
                     @endforeach

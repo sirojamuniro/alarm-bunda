@@ -2,7 +2,7 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        <i class="fa fa-align-justify"></i>Check Tinggi Badan Anak
+        <i class="fa fa-align-justify"></i>Check Berat Badan Anak
         <div class="row">
           <div class="col-sm-3">
               <div class="input-group">

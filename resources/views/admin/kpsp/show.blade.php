@@ -15,6 +15,7 @@
 
         <h1>
         <strong>{{$message}}</strong>
+        <p>Saran:{{Session::get('saran')}}</p>
         </h1>
         @endif
     </div>

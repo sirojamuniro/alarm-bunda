@@ -17,7 +17,7 @@ class ManagementChildrenController extends Controller
      */
     public function index()
     {
-        $result = User::with('child','child.sibling')->first();
+        $result = User::with('child')->first();
 
         return view('admin.child.list',compact('result'));
     }
@@ -45,18 +45,18 @@ class ManagementChildrenController extends Controller
             ['user_id'=>$request->user_id],
             $request->except(['_token','name_sibling','age_sibling','user_id']));
 
-        foreach ($request->name_sibling as $name){
-            $sibling = Sibling::updateOrCreate(
-                ['child_id'=>$result->id],
-                ['name'=>$name]);
-        }
-        foreach ($request->age_sibling as $age){
-            $sibling = Sibling::where('id',$sibling->id)->update([
-            'age'=>$age,
-            ]);
-        }
+        // foreach ($request->name_sibling as $name){
+        //     $sibling = Sibling::updateOrCreate(
+        //         ['child_id'=>$result->id],
+        //         ['name'=>$name]);
+        // }
+        // foreach ($request->age_sibling as $age){
+        //     $sibling = Sibling::where('id',$sibling->id)->update([
+        //     'age'=>$age,
+        //     ]);
+        // }
 
-        return $result;
+        return redirect()->route('child.index');
     }
 
     /**

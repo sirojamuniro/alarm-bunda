@@ -28,8 +28,8 @@
                     </div>
 
                     <div class="">
-                        <button class="btn btn-sm btn-primary" id="save" type="submit">
-                        <i class="fa fa-dot-circle-o"></i> Simpan</button>
+                        <button class="btn btn-sm btn-success" id="save" type="submit">
+                        <i class="fa fa-dot-circle-o"></i> Lanjut</button>
                         <button class="btn btn-sm btn-danger" id="reset" type="reset">
                         <i class="fa fa-ban"></i> Reset</button>
                         <button type="button" class="btn btn-primary" id="loadingbutton" disabled>  <span class="spinner-border spinner-border-sm"></span>Loading</button>

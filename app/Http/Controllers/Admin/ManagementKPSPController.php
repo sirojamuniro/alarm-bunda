@@ -59,25 +59,31 @@ class ManagementKPSPController extends Controller
         $no=[];
         $yes=[];
         $status=null;
+        // dd($counts);
         foreach($counts as $count){
-            if($count =="no"){
+            // dd($count);
+            if((int) $count == 2){
                 $no[] += (int)$count;
             }
-            if($count =="yes"){
+            if((int) $count == 1){
                 $yes[] += (int)$count;
             }
         }
-        if(count($yes) == 9 || count($yes) == 10){
+        // dd(count($no));
+        if(count($yes) == 9 || count($yes) == 10 || count($no) == 1){
                 $status = "Pekembangan Anak Sesuai Dengan Tahap Pekembangan (S)";
+                $saran ="Pertahankan stimulasi pada anak";
         }
-        if(count($yes) == 7 || count($yes) == 8){
+        if(count($yes) == 7 || count($yes) == 8 || count($no) == 2 ||  count($no) == 3){
             $status = "Pekembangan Anak Meragukan (M)";
+            $saran = "Lakukan stimulasi secara rutin dan lakukan skrining KPSP 2 minggu lagi";
         }
-        if(count($yes) <= 6 ){
+        if(count($yes) < 7 || count($no) > 3){
             $status = "Perkembangan Anak Kurang atau Ada Penyimpangan (P)";
+            $saran = "Rujuk anak ke poli tumbuh kembang";
         }
 
-        return redirect()->route('kpsp.show.detail')->with(['status' => "${status}"]);
+        return redirect()->route('kpsp.show.detail')->with(['status' => "${status}",'saran'=>"${saran}"]);
     }
 
     /**

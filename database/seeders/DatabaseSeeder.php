@@ -18,7 +18,9 @@ class DatabaseSeeder extends Seeder
             BodySeeder::class,
             WeightSeeder::class,
             KPSPSeeder::class,
-            HeadSeeder::class
+            HeadSeeder::class,
+            KIPISeeder::class,
+            ImunitationSeeder::class
         ]);
     }
 }
