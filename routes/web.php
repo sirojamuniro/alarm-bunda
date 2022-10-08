@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ManagementChildrenController;
 use App\Http\Controllers\Admin\ManagementGiziController;
+use App\Http\Controllers\Admin\ManagementImunitationController;
 use App\Http\Controllers\Admin\ManagementKIPIController;
 use App\Http\Controllers\Admin\ManagementKPSPController;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,7 @@ Route::resource('child', ManagementChildrenController::class);
 Route::resource('gizi', ManagementGiziController::class);
 Route::resource('kipi', ManagementKIPIController::class);
 Route::resource('kpsp', ManagementKPSPController::class);
+Route::resource('imunitation', ManagementImunitationController::class);
 Route::get('gizi/showtb', [ManagementGiziController::class,'showTb'])->name('gizi.showtb');
 Route::get('gizi/bb/list', [ManagementGiziController::class,'listBB'])->name('gizi.list-bb');
 Route::post('kpsp/question', [ManagementKPSPController::class,'question'])->name('kpsp.question');

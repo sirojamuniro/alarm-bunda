@@ -2,7 +2,7 @@
     <!-- Brand Logo -->
     <div class="brand-link">
       <a href="{{ route('home') }}">
-        {{ auth()->user()->name }}
+        {{ strtoupper(auth()->user()->name) }}
       </a>
     </div>
 
@@ -28,14 +28,14 @@
                 </p>
               </a>
           </li>
-          <li class="nav-item has-treeview " >
+          {{-- <li class="nav-item has-treeview " >
             <a href="{{route('kipi.index')}}" class="nav-link ">
               <i class="nav-icon fas fa-tachometer-alt" ></i>
               <p>
                 Halaman KIPI
               </p>
             </a>
-        </li>
+        </li> --}}
           <li class="nav-item has-treeview  {{ request()->is('gizi','gizi/*')}}">
             <a href="#" class="nav-link {{request()->is('gizi','gizi/*') }}">
               <i class="nav-icon fas fa-tachometer-alt" ></i>
@@ -72,6 +72,14 @@
               <i class="nav-icon fas fa-tachometer-alt" ></i>
               <p>
                 Halaman KPSP
+              </p>
+            </a>
+        </li>
+        <li class="nav-item has-treeview " >
+            <a href="{{route('imunitation.index')}}" class="nav-link ">
+              <i class="nav-icon fas fa-tachometer-alt" ></i>
+              <p>
+                Halaman Imunisasi
               </p>
             </a>
         </li>

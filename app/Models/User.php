@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
     	return $this->hasOne(Child::class,'user_id', 'id');
     }
+
+    public function imunitation()
+    {
+    	return $this->hasMany(UserImunitation::class,'user_id', 'id');
+    }
 }

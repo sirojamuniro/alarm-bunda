@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Imunitation;
+use App\Models\DetailImunitation;
 use App\Models\Symptoms;
 
 class ImunitationSeeder extends Seeder
@@ -42,5 +43,15 @@ class ImunitationSeeder extends Seeder
         foreach ($valueImun as $imun) {
             Imunitation::firstOrCreate($imun);
         }
+        for($i=1; $i<=count($valueImun); $i++ )
+        {
+            for($c=1; $c<=count($valueGejala); $c++){
+                DetailImunitation::firstOrCreate([
+                    'imunitation_id'=>$i,
+                    'sympton_id'=>$c
+                ]);
+            }
+        }
+
     }
 }

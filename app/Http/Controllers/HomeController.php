@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Image;
 
 use Illuminate\Http\Request;
 
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.home');
+        $result = Image::latest()->get();
+        return view('admin.home',compact('result'));
     }
 }

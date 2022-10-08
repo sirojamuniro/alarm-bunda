@@ -12,4 +12,9 @@ class Symptoms extends Model
     protected $table = 'symptoms';
 
     protected $guarded = ['id'];
+
+    public function detailImunitation()
+    {
+       return $this->belongsToMany(Imunitation::class, 'detail_imunitations', 'sympton_id', 'imunitation_id');
+    }
 }

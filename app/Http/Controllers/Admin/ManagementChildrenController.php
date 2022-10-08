@@ -17,7 +17,7 @@ class ManagementChildrenController extends Controller
      */
     public function index()
     {
-        $result = User::with('child')->first();
+        $result = auth()->user()->child;
 
         return view('admin.child.list',compact('result'));
     }
