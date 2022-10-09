@@ -17,12 +17,18 @@ class UserImunitation extends Model
     {
     	return $this->belongsTo(User::class, 'user_id', 'id');
     }
-    public function symptom()
-    {
-    	return $this->belongsTo(Symptoms::class, 'sympton_id', 'id');
-    }
+    // public function symptom()
+    // {
+    // 	return $this->belongsTo(Symptoms::class, 'sympton_id', 'id');
+    // }
+
     public function imunitationParent()
     {
     	return $this->belongsTo(Imunitation::class, 'imunitation_id', 'id');
+    }
+
+    public function userSymptom()
+    {
+    	return $this->hasMany(UserSymptom::class, 'user_imunitation_id', 'id');
     }
 }

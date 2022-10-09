@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Imunitation;
 use App\Models\Symptoms;
 use App\Models\UserImunitation;
+use App\Models\UserSymptom;
 use App\Models\User;
 
 class ManagementImunitationController extends Controller
@@ -70,9 +71,10 @@ class ManagementImunitationController extends Controller
         $v132 = false;
         $v133 = false;
         $v134 = false;
-        $imunitation = Imunitation::with('detailImunitation')->latest()->get();
+        $imunitation = Imunitation::get();
+        $sympton = Symptoms::get();
         $user = auth()->user()->imunitation;
-
+        if(isset($user)){
         foreach($user as $user) {
             if($user->imunitation_id === 1 && $user->sympton_id === 1){
                 $v11 = true;
@@ -107,6 +109,15 @@ class ManagementImunitationController extends Controller
             if($user->imunitation_id === 3 && $user->sympton_id === 3){
                 $v33 = true;
             }
+            if($user->imunitation_id === 4 && $user->sympton_id === 1){
+                $v41 = true;
+            }
+            if($user->imunitation_id === 4 && $user->sympton_id === 2){
+                $v42 = true;
+            }
+            if($user->imunitation_id === 4 && $user->sympton_id === 3){
+                $v43 = true;
+            }
             if($user->imunitation_id === 4 && $user->sympton_id === 4){
                 $v44 = true;
             }
@@ -139,6 +150,18 @@ class ManagementImunitationController extends Controller
             }
             if($user->imunitation_id === 7 && $user->sympton_id === 2){
                 $v72 = true;
+            }
+            if($user->imunitation_id === 7 && $user->sympton_id === 3){
+                $v73 = true;
+            }
+            if($user->imunitation_id === 7 && $user->sympton_id === 4){
+                $v74 = true;
+            }
+            if($user->imunitation_id === 8 && $user->sympton_id === 1){
+                $v81 = true;
+            }
+            if($user->imunitation_id === 8 && $user->sympton_id === 2){
+                $v82 = true;
             }
             if($user->imunitation_id === 8 && $user->sympton_id === 3){
                 $v83 = true;
@@ -209,12 +232,13 @@ class ManagementImunitationController extends Controller
 
 
         }
+    }
         // dd($v134);
         // $user = UserImunitation::where('user_id',auth()->user()->id)->get();
         // dd($user);
         // $symptopms = Symptoms::with('detailImunitation')->latest()->get();
 // dd($symptopms);
-        return view('admin.imunitation.index',compact('imunitation','user',
+        return view('admin.imunitation.index',compact('imunitation','user','sympton',
 
         'v11',
         'v12',
@@ -293,35 +317,40 @@ class ManagementImunitationController extends Controller
         $imunitations = $request->imunitation_v1;
         $symptopms_v1 = $request->symptopms_v1;
         // dd($imunitations,$request->imunitation_v2,count($request->imunitation_v2),$symptopms);
-        if(isset($symptopms_v1)){
+        if(isset($imunitations)){
             $checkImun = UserImunitation::where(['imunitation_id'=>$imunitations,
             'user_id'=>auth()->user()->id])->delete();
-            for ($i = 0; $i < count($symptopms_v1); $i++) {
-                UserImunitation::insert([
-                    'sympton_id'=>$symptopms_v1[$i],
-                    'imunitation_id'=>$imunitations,
-                    'user_id'=>auth()->user()->id,
-                    'created_at'=>now(),
-                    'updated_at'=>now()
-                ]);
+            if(isset($request->symptopms_v1)){
+                for ($i = 0; $i < count($symptopms_v1); $i++) {
+                    UserImunitation::insert([
+                        'sympton_id'=>$symptopms_v1[$i],
+                        'imunitation_id'=>$imunitations,
+                        'user_id'=>auth()->user()->id,
+                        'date'=>$request->date_v1,
+                        'created_at'=>now(),
+                        'updated_at'=>now()
+                    ]);
+                }
             }
         }
-        if(isset($request->symptopms_v2)){
-            $checkImun = UserImunitation::where(['imunitation_id'=>$request->imunitation_v2,
-            'user_id'=>auth()->user()->id])->delete();
-            for ($i = 0; $i < count($request->symptopms_v2); $i++) {
-                UserImunitation::insert([
-                    'sympton_id'=>$request->symptopms_v2[$i],
-                    'imunitation_id'=>$request->imunitation_v2,
-                    'user_id'=>auth()->user()->id,
-                    'created_at'=>now(),
-                    'updated_at'=>now()
-                ]);
+        if(isset($request->imunitation_v2)){
+            $checkImun = UserImunitation::where(['imunitation_id'=>$request->imunitation_v2,'user_id'=>auth()->user()->id])->delete();
+            if(isset($request->symptopms_v2)){
+                for ($i = 0; $i < count($request->symptopms_v2); $i++) {
+                    UserImunitation::insert([
+                        'sympton_id'=>$request->symptopms_v2[$i],
+                        'imunitation_id'=>$request->imunitation_v2,
+                        'user_id'=>auth()->user()->id,
+                        'created_at'=>now(),
+                        'updated_at'=>now()
+                    ]);
+                }
             }
         }
-        if(isset($request->symptopms_v3)){
+        if(isset($request->imunitation_v3)){
             $checkImun = UserImunitation::where(['imunitation_id'=>$request->imunitation_v3,
             'user_id'=>auth()->user()->id])->delete();
+            if(isset($request->symptopms_v3)){
             for ($i = 0; $i < count($request->symptopms_v3); $i++) {
                 UserImunitation::insert([
                     'sympton_id'=>$request->symptopms_v3[$i],
@@ -332,22 +361,27 @@ class ManagementImunitationController extends Controller
                 ]);
             }
         }
-        if(isset($request->symptopms_v4)){
+        }
+        if(isset($request->imunitation_v4)){
+            // dd($request->symptopms_v4);
             $checkImun = UserImunitation::where(['imunitation_id'=>$request->imunitation_v4,
             'user_id'=>auth()->user()->id])->delete();
-            for ($i = 0; $i < count($request->symptopms_v4); $i++) {
-                UserImunitation::insert([
-                    'sympton_id'=>$request->symptopms_v4[$i],
-                    'imunitation_id'=>$request->imunitation_v4,
-                    'user_id'=>auth()->user()->id,
-                    'created_at'=>now(),
-                    'updated_at'=>now()
-                ]);
+            if(is_array($request->symptopms_v4) || !empty($request->symptopms_v4)){
+                for ($i = 0; $i < count($request->symptopms_v4); $i++) {
+                    UserImunitation::insert([
+                        'sympton_id'=>$request->symptopms_v4[$i],
+                        'imunitation_id'=>$request->imunitation_v4,
+                        'user_id'=>auth()->user()->id,
+                        'created_at'=>now(),
+                        'updated_at'=>now()
+                    ]);
+                }
             }
         }
-        if(isset($request->symptopms_v5)){
+        if(isset($request->imunitation_v5)){
             $checkImun = UserImunitation::where(['imunitation_id'=>$request->imunitation_v5,
             'user_id'=>auth()->user()->id])->delete();
+            if(isset($request->symptopms_v5)){
             for ($i = 0; $i < count($request->symptopms_v5); $i++) {
                 UserImunitation::insert([
                     'sympton_id'=>$request->symptopms_v5[$i],
@@ -358,9 +392,11 @@ class ManagementImunitationController extends Controller
                 ]);
             }
         }
-        if(isset($request->symptopms_v6)){
+        }
+        if(isset($request->imunitation_v6)){
             $checkImun = UserImunitation::where(['imunitation_id'=>$request->imunitation_v6,
             'user_id'=>auth()->user()->id])->delete();
+            if(isset($request->symptopms_v6)){
             for ($i = 0; $i < count($request->symptopms_v6); $i++) {
                 UserImunitation::insert([
                     'sympton_id'=>$request->symptopms_v6[$i],
@@ -371,9 +407,11 @@ class ManagementImunitationController extends Controller
                 ]);
             }
         }
-        if(isset($request->symptopms_v7)){
+        }
+        if(isset($request->imunitation_v7)){
             $checkImun = UserImunitation::where(['imunitation_id'=>$request->imunitation_v7,
             'user_id'=>auth()->user()->id])->delete();
+            if(isset($request->symptopms_v7)){
             for ($i = 0; $i < count($request->symptopms_v7); $i++) {
                 UserImunitation::insert([
                     'sympton_id'=>$request->symptopms_v7[$i],
@@ -384,9 +422,11 @@ class ManagementImunitationController extends Controller
                 ]);
             }
         }
-        if(isset($request->symptopms_v8)){
+        }
+        if(isset($request->imunitation_v8)){
             $checkImun = UserImunitation::where(['imunitation_id'=>$request->imunitation_v8,
             'user_id'=>auth()->user()->id])->delete();
+            if(isset($request->symptopms_v8)){
             for ($i = 0; $i < count($request->symptopms_v8); $i++) {
                 UserImunitation::insert([
                     'sympton_id'=>$request->symptopms_v8[$i],
@@ -397,9 +437,11 @@ class ManagementImunitationController extends Controller
                 ]);
             }
         }
-        if(isset($request->symptopms_v9)){
+        }
+        if(isset($request->imunitation_v9)){
             $checkImun = UserImunitation::where(['imunitation_id'=>$request->imunitation_v9,
             'user_id'=>auth()->user()->id])->delete();
+            if(isset($request->symptopms_v9)){
             for ($i = 0; $i < count($request->symptopms_v9); $i++) {
                 UserImunitation::insert([
                     'sympton_id'=>$request->symptopms_v9[$i],
@@ -410,9 +452,11 @@ class ManagementImunitationController extends Controller
                 ]);
             }
         }
-        if(isset($request->symptopms_v10)){
+        }
+        if(isset($request->imunitation_v10)){
             $checkImun = UserImunitation::where(['imunitation_id'=>$request->imunitation_v10,
             'user_id'=>auth()->user()->id])->delete();
+            if(isset($request->symptopms_v10)){
             for ($i = 0; $i < count($request->symptopms_v10); $i++) {
                 UserImunitation::insert([
                     'sympton_id'=>$request->symptopms_v10[$i],
@@ -423,9 +467,11 @@ class ManagementImunitationController extends Controller
                 ]);
             }
         }
-        if(isset($request->symptopms_v11)){
+        }
+        if(isset($request->imunitation_v11)){
             $checkImun = UserImunitation::where(['imunitation_id'=>$request->imunitation_v11,
             'user_id'=>auth()->user()->id])->delete();
+            if(isset($request->symptopms_v11)){
             for ($i = 0; $i < count($request->symptopms_v11); $i++) {
                 UserImunitation::insert([
                     'sympton_id'=>$request->symptopms_v11[$i],
@@ -436,9 +482,11 @@ class ManagementImunitationController extends Controller
                 ]);
             }
         }
-        if(isset($request->symptopms_v12)){
+        }
+        if(isset($request->imunitation_v12)){
             $checkImun = UserImunitation::where(['imunitation_id'=>$request->imunitation_v12,
             'user_id'=>auth()->user()->id])->delete();
+            if(isset($request->symptopms_v12)){
             for ($i = 0; $i < count($request->symptopms_v12); $i++) {
                 UserImunitation::insert([
                     'sympton_id'=>$request->symptopms_v12[$i],
@@ -449,9 +497,11 @@ class ManagementImunitationController extends Controller
                 ]);
             }
         }
-        if(isset($request->symptopms_v13)){
+        }
+        if(isset($request->imunitation_v13)){
             $checkImun = UserImunitation::where(['imunitation_id'=>$request->imunitation_v13,
             'user_id'=>auth()->user()->id])->delete();
+            if(isset($request->symptopms_v13)){
             for ($i = 0; $i < count($request->symptopms_v13); $i++) {
                 UserImunitation::insert([
                     'sympton_id'=>$request->symptopms_v13[$i],
@@ -461,6 +511,7 @@ class ManagementImunitationController extends Controller
                     'updated_at'=>now()
                 ]);
             }
+        }
         }
 
         // dd($symptopms);
@@ -522,6 +573,25 @@ class ManagementImunitationController extends Controller
         return redirect()->route('imunitation.index');
     }
 
+    // public function store(Request $request){
+    //     $imunitation = $request->imunitation_id;
+    //     $sympton = $request->sympton_id;
+    //     $date = $request->date;
+
+    //    $addImunitation= UserImunitation::create([
+    //         'imunitation_id'=>$imunitation,
+    //         'user_id'=>auth()->user()->id,
+    //         'date'=>$date
+    //    ]);
+    //    foreach($sympton as $symp){
+    //     $addSympton = UserSymptom::create([
+    //         'user_imunitation_id'=>$addImunitation->id,
+    //         'user_id'=>$addImunitation->user_id,
+    //         'sympton_id'=>$symp
+    //     ]);
+    //     }
+
+    // }
     /**
      * Display the specified resource.
      *

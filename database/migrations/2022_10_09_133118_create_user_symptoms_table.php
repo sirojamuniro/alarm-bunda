@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserImunitationsTable extends Migration
+class CreateUserSymptomsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,17 @@ class CreateUserImunitationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_imunitations', function (Blueprint $table) {
+        Schema::create('user_symptoms', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('date')->nullable();
             $table->timestamps();
-
-            $table->foreignId('imunitation_id')->nullable()
-            ->constrained('imunitations')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
 
             $table->foreignId('sympton_id')->nullable()
             ->constrained('symptoms')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+
+            $table->foreignId('user_imunitation_id')->nullable()
+            ->constrained('user_imunitations')
             ->onUpdate('cascade')
             ->onDelete('cascade');
 
@@ -42,6 +41,6 @@ class CreateUserImunitationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_imunitations');
+        Schema::dropIfExists('user_symptoms');
     }
 }
