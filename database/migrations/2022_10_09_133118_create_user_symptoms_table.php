@@ -15,10 +15,16 @@ class CreateUserSymptomsTable extends Migration
     {
         Schema::create('user_symptoms', function (Blueprint $table) {
             $table->id();
+            $table->dateTime('date')->nullable();
             $table->timestamps();
 
             $table->foreignId('sympton_id')->nullable()
             ->constrained('symptoms')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+
+            $table->foreignId('imunitation_id')->nullable()
+            ->constrained('imunitations')
             ->onUpdate('cascade')
             ->onDelete('cascade');
 

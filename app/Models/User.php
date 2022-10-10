@@ -51,4 +51,8 @@ class User extends Authenticatable
     {
     	return $this->hasMany(UserImunitation::class,'user_id', 'id');
     }
+    public function symptom()
+    {
+    	return $this->hasMany(UserSymptom::class,'user_id', 'id');
+    }
 }

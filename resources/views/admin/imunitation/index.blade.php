@@ -46,7 +46,7 @@
             <thead>
                 <tr align="center">
                     <th rowspan="2"  >JENIS IMUNISASI</th>
-                    {{-- <th rowspan="2"  >TANGGAL PEMBERIAN</th> --}}
+                    <th rowspan="2"  >TANGGAL PEMBERIAN</th>
                     <th colspan="4"  >KEJADIAN IKUTAN PASCA IMUNISASI (KIPI)</th>
                 </tr>
                 <tr align="center">
@@ -68,7 +68,7 @@
                         <label for="title">Hepatitis B</label>
                         {{-- <input class="form-control" id="" name="imunitation_v1[0][imunitation_id]" type="checkbox" value="1" > --}}
                     </td>
-                    {{-- <td>  <input class="form-control" id="" name="date_v1" type="date" value="" ></td> --}}
+                    <td>  <input class="form-control" id="" name="date_v1" type="date" value="{{$date_v1 ?? ""}}" ></td>
                     <td ><input class="form-control" id="symptopms[]" name="symptopms_v1[]" type="checkbox" value="1"   {{$v11 ? 'checked' : ''  }} ></td>
                     <td><input class="form-control" id="symptopms[]" name="symptopms_v1[]" type="checkbox" value="2"  {{$v12 ? 'checked' : ''  }} ></td>
                     <td ><input class="form-control" id="symptopms[]" name="symptopms_v1[]" type="checkbox" value="3" {{$v13 ? 'checked' : ''  }} ></td>
@@ -81,7 +81,7 @@
                         <label for="title">Polio</label>
                         {{-- <input class="form-control" id="" name="imunitation_v2[0][imunitation_id]" type="checkbox" value="2" > --}}
                     </td>
-                    {{-- <td>  <input class="form-control" id="" name="date_v2" type="date" value="" ></td> --}}
+                    <td>  <input class="form-control" id="" name="date_v2" type="date" value="{{$date_v2 ?? ""}}" ></td>
                     <td ><input class="form-control" id="symptopms[]" name="symptopms_v2[]" type="checkbox" value="1" {{$v21 ? 'checked' : ''  }}></td>
                     <td><input class="form-control" id="symptopms[]" name="symptopms_v2[]" type="checkbox" value="2"{{$v22 ? 'checked' : ''  }} ></td>
                     <td ><input class="form-control" id="symptopms[]" name="symptopms_v2[]" type="checkbox" value="3" {{$v23 ? 'checked' : ''  }}></td>
@@ -94,7 +94,7 @@
                         <label for="title">BCG</label>
                         {{-- <input class="form-control" id="" name="imunitations[0][imunitation_id]" type="checkbox" value="3" > --}}
                     </td>
-                    {{-- <td>  <input class="form-control" id="" name="date_v3" type="date" value="" ></td> --}}
+                    <td>  <input class="form-control" id="" name="date_v3" type="date" value="{{$date_v3 ?? ""}}" ></td>
                     <td ><input class="form-control" id="symptopms[]" name="symptopms_v3[]" type="checkbox" value="1" {{$v31 ? 'checked' : ''  }}></td>
                     <td><input class="form-control" id="symptopms[]" name="symptopms_v3[]" type="checkbox" value="2" {{$v32 ? 'checked' : ''  }}></td>
                     <td ><input class="form-control" id="symptopms[]" name="symptopms_v3[]" type="checkbox" value="3" {{$v33 ? 'checked' : ''  }}></td>
@@ -107,7 +107,7 @@
                         <label for="title">DPT</label>
                         {{-- <input class="form-control" id="" name="imunitations[0][imunitation_id]" type="checkbox" value="4" > --}}
                     </td>
-                    {{-- <td>  <input class="form-control" id="" name="date_v4" type="date" value="" ></td> --}}
+                    <td>  <input class="form-control" id="" name="date_v4" type="date" value="{{$date_v4 ?? ""}}" ></td>
                     <td ><input class="form-control" id="symptopms[]" name="symptopms_v4[]" type="checkbox" value="1" {{$v41 ? 'checked' : ''  }}></td>
                     <td><input class="form-control" id="symptopms[]" name="symptopms_v4[]" type="checkbox" value="2" {{$v42 ? 'checked' : ''  }}></td>
                     <td ><input class="form-control" id="symptopms[]" name="symptopms_v4[]" type="checkbox" value="3" {{$v43 ? 'checked' : ''  }}></td>
@@ -120,7 +120,7 @@
                         <label for="title">Hib</label>
                         {{-- <input class="form-control" id="" name="imunitations[0][imunitation_id]" type="checkbox" value="5" > --}}
                     </td>
-                    {{-- <td>  <input class="form-control" id="" name="date_v5" type="date" value="" ></td> --}}
+                    <td>  <input class="form-control" id="" name="date_v5" type="date" value="{{$date_v5 ?? ""}}" ></td>
                     <td ><input class="form-control" id="symptopms[]" name="symptopms_v5[]" type="checkbox" value="1" {{$v51 ? 'checked' : ''  }}></td>
                     <td><input class="form-control" id="symptopms[]" name="symptopms_v5[]" type="checkbox" value="2" {{$v52 ? 'checked' : ''  }}></td>
                     <td ><input class="form-control" id="symptopms[]" name="symptopms_v5[]" type="checkbox" value="3" {{$v53 ? 'checked' : ''  }}></td>
@@ -133,7 +133,7 @@
                         <label for="title">PCV</label>
                         {{-- <input class="form-control" id="" name="imunitations[0][imunitation_id]" type="checkbox" value="6" > --}}
                     </td>
-                    {{-- <td>  <input class="form-control" id="" name="date_v6" type="date" value="" ></td> --}}
+                    <td>  <input class="form-control" id="" name="date_v6" type="date" value="{{$date_v6 ?? ""}}" ></td>
                     <td ><input class="form-control" id="symptopms[]" name="symptopms_v6[]" type="checkbox" value="1" {{$v61 ? 'checked' : ''  }}></td>
                     <td><input class="form-control" id="symptopms[]" name="symptopms_v6[]" type="checkbox" value="2" {{$v62 ? 'checked' : ''  }}></td>
                     <td ><input class="form-control" id="symptopms[]" name="symptopms_v6[]" type="checkbox" value="3" {{$v63 ? 'checked' : ''  }}></td>
@@ -146,7 +146,7 @@
                         <label for="title">Rotavirus</label>
                         {{-- <input class="form-control" id="" name="imunitations[0][imunitation_id]" type="checkbox" value="7" > --}}
                     </td>
-                    {{-- <td>  <input class="form-control" id="" name="date_v7" type="date" value="" ></td> --}}
+                    <td>  <input class="form-control" id="" name="date_v7" type="date" value="{{$date_v7 ?? ""}}" ></td>
                     <td ><input class="form-control" id="symptopms[]" name="symptopms_v7[]" type="checkbox" value="1" {{$v71 ? 'checked' : ''  }}></td>
                     <td><input class="form-control" id="symptopms[]" name="symptopms_v7[]" type="checkbox" value="2" {{$v72 ? 'checked' : ''  }}></td>
                     <td ><input class="form-control" id="symptopms[]" name="symptopms_v7[]" type="checkbox" value="3" {{$v73 ? 'checked' : ''  }}></td>
@@ -159,7 +159,7 @@
                         <label for="title">Influenza</label>
                         {{-- <input class="form-control" id="" name="imunitations[0][imunitation_id]" type="checkbox" value="8" > --}}
                     </td>
-                    {{-- <td>  <input class="form-control" id="" name="date_v8" type="date" value="" ></td> --}}
+                    <td>  <input class="form-control" id="" name="date_v8" type="date" value="{{$date_v8 ?? ""}}" ></td>
                     <td ><input class="form-control" id="symptopms[]" name="symptopms_v8[]" type="checkbox" value="1" {{$v81 ? 'checked' : ''  }}></td>
                     <td><input class="form-control" id="symptopms[]" name="symptopms_v8[]" type="checkbox" value="2" {{$v82 ? 'checked' : ''  }}></td>
                     <td ><input class="form-control" id="symptopms[]" name="symptopms_v8[]" type="checkbox" value="3" {{$v83 ? 'checked' : ''  }}></td>
@@ -172,7 +172,7 @@
                         <label for="title">MR/MMR</label>
                         {{-- <input class="form-control" id="" name="imunitations[0][imunitation_id]" type="checkbox" value="9" > --}}
                     </td>
-                    {{-- <td>  <input class="form-control" id="" name="date_v9" type="date" value="" ></td> --}}
+                    <td>  <input class="form-control" id="" name="date_v9" type="date" value="{{$date_v9 ?? ""}}" ></td>
                     <td ><input class="form-control" id="symptopms[]" name="symptopms_v9[]" type="checkbox" value="1" {{$v91 ? 'checked' : ''  }}></td>
                     <td><input class="form-control" id="symptopms[]" name="symptopms_v9[]" type="checkbox" value="2" {{$v92 ? 'checked' : ''  }}></td>
                     <td ><input class="form-control" id="symptopms[]" name="symptopms_v9[]" type="checkbox" value="3" {{$v93 ? 'checked' : ''  }}></td>
@@ -185,7 +185,7 @@
                         <label for="title">JE</label>
                         {{-- <input class="form-control" id="" name="imunitations[0][imunitation_id]" type="checkbox" value="10" > --}}
                     </td>
-                    {{-- <td>  <input class="form-control" id="" name="date_v10" type="date" value="" ></td> --}}
+                    <td>  <input class="form-control" id="" name="date_v10" type="date" value="{{$date_v10 ?? ""}}" ></td>
                     <td ><input class="form-control" id="symptopms[]" name="symptopms_v10[]" type="checkbox" value="1" {{$v101 ? 'checked' : ''  }}></td>
                     <td><input class="form-control" id="symptopms[]" name="symptopms_v10[]" type="checkbox" value="2" {{$v102 ? 'checked' : ''  }}></td>
                     <td ><input class="form-control" id="symptopms[]" name="symptopms_v10[]" type="checkbox" value="3" {{$v103 ? 'checked' : ''  }}></td>
@@ -199,7 +199,7 @@
                         <label for="title">Varisela</label>
                         {{-- <input class="form-control" id="" name="imunitations[0][imunitation_id]" type="checkbox" value="11" > --}}
                     </td>
-                    {{-- <td>  <input class="form-control" id="" name="date_v11" type="date" value="" ></td> --}}
+                    <td>  <input class="form-control" id="" name="date_v11" type="date" value="{{$date_v11 ?? ""}}" ></td>
                     <td ><input  class="form-control" id="symptopms[]" name="symptopms_v11[]" type="checkbox" value="1" {{$v111 ? 'checked' : ''  }}></td>
                     <td><input  class="form-control" id="symptopms[]" name="symptopms_v11[]" type="checkbox" value="2" {{$v112 ? 'checked' : ''  }}></td>
                     <td ><input  class="form-control" id="symptopms[]" name="symptopms_v11[]" type="checkbox" value="3" {{$v113 ? 'checked' : ''  }}></td>
@@ -212,7 +212,7 @@
                         <label for="title">Hepatitis A</label>
                         {{-- <input class="form-control" id="" name="imunitations[0][imunitation_id]" type="checkbox" value="12" > --}}
                     </td>
-                    {{-- <td>  <input class="form-control" id="" name="date_v12" type="date" value="" ></td> --}}
+                    <td>  <input class="form-control" id="" name="date_v12" type="date" value="{{$date_v12 ?? ""}}" ></td>
                     <td ><input class="form-control"  id="symptopms[]" name="symptopms_v12[]" type="checkbox" value="1" {{$v121 ? 'checked' : ''  }}></td>
                     <td><input class="form-control" id="symptopms[]" name="symptopms_v12[]" type="checkbox" value="2" {{$v122 ? 'checked' : ''  }}></td>
                     <td ><input class="form-control" id="symptopms[]" name="symptopms_v12[]" type="checkbox" value="3" {{$v123 ? 'checked' : ''  }}></td>
@@ -225,7 +225,7 @@
                         <label for="title">Tifoid</label>
                         {{-- <input class="form-control" id="" name="imunitations[0][imunitation_id]" type="checkbox" value="13" > --}}
                     </td>
-                    {{-- <td>  <input class="form-control" id="" name="date_v13" type="date" value="" ></td> --}}
+                    <td>  <input class="form-control" id="" name="date_v13" type="date" value="{{$date_v13 ?? ""}}" ></td>
                     <td ><input class="form-control" id="symptopms[]" name="symptopms_v13[]" type="checkbox" value="1" {{$v131 ? 'checked' : ''  }}></td>
                     <td><input  class="form-control" id="symptopms[]" name="symptopms_v13[]" type="checkbox" value="2" {{$v132 ? 'checked' : ''  }} ></td>
                     <td ><input class="form-control" id="symptopms[]" name="symptopms_v13[]" type="checkbox" value="3" {{$v133 ? 'checked' : ''  }}></td>
